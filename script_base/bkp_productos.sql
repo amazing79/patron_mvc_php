@@ -31,7 +31,7 @@ CREATE TABLE `Clientes` (
   `dni` int(11) DEFAULT NULL,
   `fecha_nacimiento` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idCliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -52,11 +52,14 @@ DROP TABLE IF EXISTS `productos`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `productos` (
   `idproducto` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(255) DEFAULT NULL,
-  `precio` varchar(45) DEFAULT NULL,
-  `cantidad` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idproducto`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `nombre` varchar(255) NOT NULL,
+  `precio` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  `idProveedor` int(11) NOT NULL,
+  PRIMARY KEY (`idproducto`),
+  KEY `fk_proveedor_idx` (`idProveedor`),
+  CONSTRAINT `fk_proveedor` FOREIGN KEY (`idProveedor`) REFERENCES `proveedores` (`idproveedor`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,6 +69,30 @@ CREATE TABLE `productos` (
 LOCK TABLES `productos` WRITE;
 /*!40000 ALTER TABLE `productos` DISABLE KEYS */;
 /*!40000 ALTER TABLE `productos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `proveedores`
+--
+
+DROP TABLE IF EXISTS `proveedores`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `proveedores` (
+  `idproveedor` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_proveedor` varchar(145) DEFAULT NULL,
+  `mail_contacto` varchar(145) DEFAULT NULL,
+  PRIMARY KEY (`idproveedor`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `proveedores`
+--
+
+LOCK TABLES `proveedores` WRITE;
+/*!40000 ALTER TABLE `proveedores` DISABLE KEYS */;
+/*!40000 ALTER TABLE `proveedores` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -77,4 +104,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-26  0:37:21
+-- Dump completed on 2019-03-31 23:49:34
