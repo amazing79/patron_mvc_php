@@ -16,7 +16,7 @@
 <header>
 <?php require_once('layouts/header.php'); ?>
 </header>
-<div class="container-fluid" >
+<div class="container" >
 <?php
    require_once('AppRouter.php');
    

@@ -5,30 +5,28 @@ class ClientesView
     {
         ?>
         <h3>Agregar Cliente</h3>
-        <div class="container" >
-            <form name="frmAlta" action="index.php?url=Clientes&accion=<?php echo EnumAccion::Agregar(); ?>" method="post">
+        <div class="row" >
+            <form class="col s12" name="frmAlta" action="index.php?url=Clientes&accion=<?php echo EnumAccion::Agregar(); ?>" method="post">
             <input type="hidden" name="hndId" value="-1" />
-            <div class="form-group">  
-                <label>Apellidos:</label>
-                <input type="text" name="txtApellido" class="form-control" required="true" placeholder="Ingrese Apellidos"/>
+            <div class="input-field col s12">  
+                <input type="text" id="apellido" name="txtApellido" class="validate" required="true" placeholder="Ingrese Apellidos"/>
+                <label for="apellido">Apellidos:</label>
             </div>
-            <div class="form-group">  
-                <label>Nombres:</label>
-                <input type="text" name="txtNombre" class="form-control" required="true" placeholder="Ingrese Nombres"/>
+            <div class="input-field col s12">  
+                <input id="nombre" type="text" name="txtNombre" class="input-field" required="true" placeholder="Ingrese Nombres"/>
+                <label for="nombre">Nombres:</label>
             </div>
-            <div class="form-group">  
-                <label>Dni:</label>
-                <input type="text" name="txtDni" class="form-control" required="true" placeholder="Ingrese Dni"/>
+            <div class="input-field col s12">  
+                <input id="dni" type="text" name="txtDni" class="input-field" required="true" placeholder="Ingrese Dni"/>
+                <label for="dni">Dni:</label>
             </div>
-            <div class="form-group">  
-                <label>Fecha Nacimiento</label>
-                <input type="date" name="txtFechaNacimiento" class="form-control" required="true" placeholder="Ingrese fecha"/>
+            <div class="input-field col s12">  
+                <input id="fechaNacimiento" type="date" name="txtFechaNacimiento" class="input-field" required="true" placeholder="Ingrese fecha"/>
+                <label for="fechaNacimiento">Fecha Nacimiento</label>
             </div>
-            <div class="form-group">  
-                <input type="submit"  class="btn btn-default" name="btnAgregar" value="Agregar" />
-                <input type="button"  class="btn btn-primary" name="btnCancelar" value="Cancelar" onclick="history.go(-1)" />
-
-               
+            <div class="input-field col 12">  
+                <input type="submit"  class="waves-effect waves-light btn" name="btnAgregar" value="Agregar" />
+                <input type="button"  class="waves-effect waves-light btn" name="btnCancelar" value="Cancelar" onclick="history.go(-1)" />
             </div>
             </form>
         </div>
@@ -39,28 +37,28 @@ class ClientesView
     {
         ?>
         <h3>Editar Cliente</h3>
-        <div class="container" >
-            <form name="frmEditar" action="index.php?url=Clientes&accion=<?php echo EnumAccion::Modificar(); ?>" method="post">
+        <div class="row" >
+            <form class="col s12" name="frmEditar" action="index.php?url=Clientes&accion=<?php echo EnumAccion::Modificar(); ?>" method="post">
             <input type="hidden" name="hndId" value="<?php echo $unCliente['idcliente'] ?>" />
-            <div class="form-group">  
-                <label>Apellidos:</label>
-                <input type="text" class="form-control" required="true" name="txtApellido" value="<?php echo $unCliente['apellido'] ?>" /> 
+            <div class="input-field col s12">  
+                <input type="text" id="apellido" name="txtApellido" class="validate" required="true" value="<?php echo $unCliente['apellido'] ?>"/>
+                <label for="apellido">Apellidos:</label>
             </div>
-            <div class="form-group">  
-                <label>Nombres:</label>
-                <input type="text" class="form-control" required="true" name="txtNombre" value="<?php echo $unCliente['nombre'] ?>" /> 
+            <div class="input-field col s12">  
+                <input id="nombre" type="text" name="txtNombre" class="input-field" required="true" value="<?php echo $unCliente['nombre'] ?>"/>
+                <label for="nombre">Nombres:</label>
             </div>
-            <div class="form-group">  
-                <label>Dni:</label>
-                <input type="text" class="form-control" required="true" name="txtDni" value="<?php echo $unCliente['dni'] ?>" /> 
+            <div class="input-field col s12">  
+                <input id="dni" type="text" name="txtDni" class="input-field" required="true"value="<?php echo $unCliente['dni'] ?>"/>
+                <label for="dni">Dni:</label>
             </div>
-            <div class="form-group">  
-                <label>Fecha Nacimiento</label>
-                <input type="date" class="form-control" required="true" name="txtFechaNacimiento" value="<?php echo date('Y-m-d', $unCliente['fecha_nacimiento']); ?>" />
+            <div class="input-field col s12">  
+                <input id="fechaNacimiento" type="date" name="txtFechaNacimiento" class="input-field" required="true" value="<?php echo date('Y-m-d', $unCliente['fecha_nacimiento']); ?>"/>
+                <label for="fechaNacimiento">Fecha Nacimiento</label>
             </div>
-            <div class="form-group">  
-            <input type="submit"  class="btn btn-default" name="btnModificar" value="Modificar" />
-            <input type="button"  class="btn btn-primary" name="btnCancelar" value="Cancelar" onclick="history.go(-1)" />
+            <div class="input-field col 12">  
+            <input type="submit"  class="waves-effect waves-light btn" name="btnModificar" value="Modificar" />
+            <input type="button"  class="waves-effect waves-light btn" name="btnCancelar" value="Cancelar" onclick="history.go(-1)" />
             </div>
             </form>
         </div>
@@ -71,29 +69,29 @@ class ClientesView
     {
         ?>
         <h3>Eliminar Cliente</h3>
-        <div class="container" >
-        <form name="frmEliminar" action="index.php?url=Clientes&accion=<?php echo EnumAccion::Eliminar(); ?>" method="post">
+        <div class="row" >
+        <form class="col s12" name="frmEliminar" action="index.php?url=Clientes&accion=<?php echo EnumAccion::Eliminar(); ?>" method="post">
         <input type="hidden" name="hndId" value="<?php echo $unCliente['idcliente'] ?>" />
-        <div class="form-group">  
-            <label>Apellidos:</label>
-            <input type="text" class="form-control" required="true" name="txtApellido" value="<?php echo $unCliente['apellido'] ?>" /> 
+        <div class="input-field col s12">  
+            <input type="text" id="apellido" name="txtApellido" class="validate" required="true" value="<?php echo $unCliente['apellido'] ?>"/>
+            <label for="apellido">Apellidos:</label>
         </div>
-        <div class="form-group">  
-            <label>Nombres:</label>
-            <input type="text" class="form-control" required="true" name="txtNombre" value="<?php echo $unCliente['nombre'] ?>" /> 
+        <div class="input-field col s12">  
+            <input id="nombre" type="text" name="txtNombre" class="input-field" required="true" value="<?php echo $unCliente['nombre'] ?>"/>
+            <label for="nombre">Nombres:</label>
         </div>
-        <div class="form-group">  
-            <label>Dni:</label>
-            <input type="text" class="form-control" required="true" name="txtDni" value="<?php echo $unCliente['dni'] ?>" /> 
+        <div class="input-field col s12">  
+            <input id="dni" type="text" name="txtDni" class="input-field" required="true"value="<?php echo $unCliente['dni'] ?>"/>
+            <label for="dni">Dni:</label>
         </div>
-        <div class="form-group">  
-            <label>Fecha Nacimiento</label>
-            <input type="date" class="form-control" required="true" name="txtFechaNacimiento" value="<?php echo date('Y-m-d', $unCliente['fecha_nacimiento']); ?>" />
+        <div class="input-field col s12">  
+            <input id="fechaNacimiento" type="date" name="txtFechaNacimiento" class="input-field" required="true" value="<?php echo date('Y-m-d', $unCliente['fecha_nacimiento']); ?>"/>
+            <label for="fechaNacimiento">Fecha Nacimiento</label>
         </div>
-        <div class="form-group">  
-            <input type="submit"  class="btn btn-default" name="btnEliminar" value="Eliminar" />
-            <input type="button"  class="btn btn-primary" name="btnCancelar" value="Cancelar" onclick="history.go(-1)" />
-            </div>
+        <div class="input-field col 12">  
+            <input type="submit"  class="waves-effect waves-light btn" name="btnModificar" value="Eliminar" />
+            <input type="button"  class="waves-effect waves-light btn" name="btnCancelar" value="Cancelar" onclick="history.go(-1)" />
+        </div>
         </form>
         </div>
         <?php 
@@ -103,7 +101,7 @@ class ClientesView
     {
     ?>
         <h3>Listado de Clientes</h3>
-        <table  class="table table-hover">
+        <table class="responsive-table">
         <thead>
 				<tr>
 					<th>Apellidos</th>
@@ -113,7 +111,8 @@ class ClientesView
 					<th>&nbsp;</th>
 					<th>&nbsp;</th>
 				</tr>
-		</thead>
+        </thead>
+        <tbody>
         <?php
             //se muestra la consulta
             if(count($lista_Clientes) > 0)
@@ -133,10 +132,11 @@ class ClientesView
             else{
                 echo '<tr><td colspan="6">Aun no se han cargado Datos! Pulse el boton para agregar alguno</td></tr>';
             }
-        ?>
+        ?>    
+        </tbody>
         </table>
         <form name="frmAlta" method="POST" action="index.php?url=Clientes&accion=<?php echo EnumAccion::Mostrar_Agregar() ?>">
-            <input type="Submit" class="btn btn-primary" name="btnAgregar" value="Agregar Cliente" />
+            <input type="Submit" class="waves-effect waves-light btn btn-primary" name="btnAgregar" value="Agregar Cliente" />
         </form>
         <?php
     }
@@ -144,52 +144,51 @@ class ClientesView
     public function getVistaResultado ($resu, $accion_actual)
     {
 
-        if ($resu)
+        if($resu)
         {
-            echo '<div class="alert alert-success" role="alert">';
+            $html_out = '<img src="assets/img/confirm.png"/>';
         }
-        else 
+        else
         {
-            echo '<div class="alert alert-danger" role="alert">';
+            $html_out = '<img src="assets/img/error.png"/>';
         }
-
-        echo '<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>';
+        $html_out .= 'Resultado de la Operaci&oacute;n = ';
         
-        echo '<h3>Resultado de la Operaci&oacute;n</h3>';
-       
         switch($accion_actual)
         {
             case EnumAccion::Agregar():
             if ($resu)
             {
-                echo '<p>Se ha dado de alta el Cliente exitosamente!</p>'; 
+                $html_out .= 'Se ha dado de alta el Cliente exitosamente!'; 
             }
             else{
-                echo '<p>Problemas al intentar dar de alta el Cliente!</p>'; 
+                $html_out .= 'Problemas al intentar dar de alta el Cliente!'; 
             }
             break;
             case EnumAccion::Modificar():
             if ($resu)
             {
-                echo '<p>Se han actualizado los datos exitosamente!</p>'; 
+                $html_out .= 'Se han actualizado los datos del Cliente exitosamente!'; 
             }
             else{
-                echo '<p>Problemas al intentar actualizar el Cliente!</p>'; 
+                $html_out .= 'Problemas al intentar actualizar el Cliente!'; 
             }
             break;
             case EnumAccion::Eliminar():
             if ($resu)
             {
-                echo '<p>Se ha eliminado el Cliente exitosamente!</p>'; 
+                $html_out .= 'Se ha eliminado el Cliente exitosamente!'; 
             }
             else{
-                echo '<p>Problemas al intentar dar de baja el Cliente!</p>'; 
+                $html_out .= 'Problemas al intentar dar de baja el Cliente!'; 
             }
             break;
             default:
-            echo '<p>Operacion no admitida!</p>'; 
+            $html_out .='Operacion no admitida!'; 
         }
-        //echo '<a href="'. $_SERVER['PHP_SELF'] .'?url=Clientes">Volver</a>';
+        echo '<div class="chip">';
+        echo $html_out;
+        echo '<i class="close material-icons">close</i>';
         echo '</div>';
         
     }
@@ -198,7 +197,7 @@ class ClientesView
     {
         $html = '<form name="frmEditar_' .$id. '" action="index.php?url=Clientes&accion='. EnumAccion::Mostrar_Editar(). '" method="POST" >';
         $html .= '<input type="hidden" name="hdn_key" value="'. $id .'" >';
-        $html .= '<input type="Submit" class="btn btn-default" name="btnEditar" value="Editar Cliente" >';
+        $html .= '<input type="Submit" class="btn waves-effect waves-green" name="btnEditar" value="Editar Cliente" >';
         $html .= '</form>';
 
         return $html;
@@ -208,7 +207,7 @@ class ClientesView
     {
         $html = '<form name="frmEditar_' .$id. '" action="index.php?url=Clientes&accion='. EnumAccion::Mostrar_Eliminar(). '" method="POST" >';
         $html .= '<input type="hidden" name="hdn_key" value="'. $id .'" >';
-        $html .= '<input type="Submit" class="btn btn-default" name="btnEliminar" value="Eliminar Cliente" >';
+        $html .= '<input type="Submit" class="btn waves-effect waves-red" name="btnEliminar" value="Eliminar Cliente" >';
         $html .= '</form>';
 
         return $html;

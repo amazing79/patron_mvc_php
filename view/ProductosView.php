@@ -174,54 +174,53 @@ class ProductosView
 
     public function getVistaResultado ($resu, $accion_actual)
     {
-        if ($resu)
+        if($resu)
         {
-            echo '<div class="alert alert-success" role="alert">';
+            $html_out = '<img src="assets/img/confirm.png"/>';
         }
-        else 
+        else
         {
-            echo '<div class="alert alert-danger" role="alert">';
+            $html_out = '<img src="assets/img/error.png"/>';
         }
-
-        echo '<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>';
-        
-        echo '<h3>Resultado de la Operaci&oacute;n</h3>';
+        $html_out .= 'Resultado de la Operaci&oacute;n = ';
        
         switch($accion_actual)
         {
             case EnumAccion::Agregar():
             if ($resu)
             {
-                echo '<p>Se ha dado de alta el producto exitosamente!</p>'; 
+                $html_out .= 'Se ha dado de alta el producto exitosamente!'; 
             }
             else{
-                echo '<p>Problemas al intentar dar de alta el producto!</p>'; 
+                $html_out .= 'Problemas al intentar dar de alta el producto!'; 
             }
             break;
             case EnumAccion::Modificar():
             if ($resu)
             {
-                echo '<p>Se han actualizado los datos exitosamente!</p>'; 
+                $html_out .= 'Se han actualizado los datos exitosamente!'; 
             }
             else{
-                echo '<p>Problemas al intentar actualizar el producto!</p>'; 
+                $html_out .= 'Problemas al intentar actualizar el producto!'; 
             }
             break;
             case EnumAccion::Eliminar():
             if ($resu)
             {
-                echo '<p>Se ha eliminado el producto exitosamente!</p>'; 
+                $html_out .= 'Se ha eliminado el producto exitosamente!'; 
             }
             else{
-                echo '<p>Problemas al intentar dar de baja el producto!</p>'; 
+                $html_out .= 'Problemas al intentar dar de baja el producto!'; 
             }
             break;
             default:
-            echo '<p>Operacion no admitida!</p>'; 
+            $html_out .= 'Operacion no admitida!'; 
         }
         
-       //echo '<a href="'. $_SERVER['PHP_SELF'] .'?url=Clientes">Volver</a>';
-       echo '</div>';
+        echo '<div class="chip">';
+        echo $html_out;
+        echo '<i class="close material-icons">close</i>';
+        echo '</div>';
     }
 
     private function buttonEdition($id)
