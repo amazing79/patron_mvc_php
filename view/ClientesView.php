@@ -135,9 +135,11 @@ class ClientesView
         ?>    
         </tbody>
         </table>
+        <br />
         <form name="frmAlta" method="POST" action="index.php?url=Clientes&accion=<?php echo EnumAccion::Mostrar_Agregar() ?>">
             <input type="Submit" class="waves-effect waves-light btn btn-primary" name="btnAgregar" value="Agregar Cliente" />
         </form>
+        <br />
         <?php
     }
 

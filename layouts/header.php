@@ -3,7 +3,7 @@
 <nav>
 	<div class="nav-wrapper">
 					
-		<a class="brand-logo" href="http://localhost/m_apptienda/">
+		<a class="brand-logo center" href="http://localhost/m_apptienda/">
 		AppTienda<i class="material-icons">cloud</i>
 		</a>
 		<!-- Icon que mostrara cuando entre con un celu -->

@@ -1,2 +1,4 @@
 #lista de archivos a ignorar
 test_medium_vanhack.php
+materialize-src/
+.vscode/

@@ -9,6 +9,8 @@
     <!--meta tags necesarios -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- agregado para que el footer quede en el fondo -->
+    <link rel="stylesheet" href="assets/css/styles.css">
      <!-- materialize CSS -->
      <link rel="stylesheet" href="materialize/css/materialize.min.css">
 </head>
@@ -16,6 +18,7 @@
 <header>
 <?php require_once('layouts/header.php'); ?>
 </header>
+<main>
 <div class="container" >
 <?php
    require_once('AppRouter.php');
@@ -29,6 +32,7 @@
 
 ?>
 </div>
+</main>
 <?php require_once('layouts/footer.php'); ?>
 <!-- CDN (content Delivery Network), para usar Materialize o Bootstrap sin necidad de instalarlo, requiere internet -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

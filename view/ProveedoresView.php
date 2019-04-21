@@ -106,9 +106,11 @@ class ProveedoresView
         ?>
         </tbody>
         </table>
+        <br />
         <form name="frmAlta" method="POST" action="index.php?url=Proveedores&accion=<?php echo EnumAccion::Mostrar_Agregar() ?>">
             <input type="Submit" class="btn" name="btnAgregar" value="Agregar Proveedor" />
         </form>
+        <br />
         <?php
     }
 

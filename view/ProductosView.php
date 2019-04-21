@@ -172,9 +172,11 @@ class ProductosView
         ?>
         </tbody>
         </table>
+        <br />
         <form name="frmAlta" method="POST" action="index.php?url=Productos&accion=<?php echo EnumAccion::Mostrar_Agregar() ?>">
             <input type="Submit" class="btn btn-primary" name="btnAgregar" value="Agregar Producto" />
         </form>
+        <br />
         <?php
     }
 
