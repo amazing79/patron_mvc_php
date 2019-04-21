@@ -5,24 +5,24 @@ class ProductosView
     {
         ?>
         <h3>Agregar &aacute;rticulo</h3>
-        <div class="container" >
-            <form name="frmAlta" action="index.php?url=Productos&accion=<?php echo EnumAccion::Agregar(); ?>" method="post">
+        <div class="row" >
+            <form  class="col s12"  name="frmAlta" action="index.php?url=Productos&accion=<?php echo EnumAccion::Agregar(); ?>" method="post">
             <input type="hidden" name="hndId" value="-1" />
-            <div class="form-group">  
-                <label>Nombre:</label>
-                <input type="text" name="txtNombre" class="form-control" required="true" placeholder="Ingrese nombre"/>
+            <div class="input-field col s12">  
+                <input id="nombre" type="text" name="txtNombre" required="true" placeholder="Ingrese nombre"/>
+                <label for="nombre">Nombre:</label>
             </div>
-            <div class="form-group">  
-                <label>Precio:</label>
-                <input type="text" name="txtPrecio" class="form-control" required="true" placeholder="Ingrese precio"/>
+            <div class="input-field col s12">  
+                <input id="precio" type="text" name="txtPrecio" required="true" placeholder="Ingrese precio"/>
+                <label for="precio">Precio:</label>
             </div>
-            <div class="form-group">  
-                <label>Cantidad</label>
-                <input type="text" name="txtCantidad" class="form-control" required="true" placeholder="Ingrese cantidad"/>
+            <div class="input-field col s12"> 
+                <input id="cantidad" type="text" name="txtCantidad" required="true" placeholder="Ingrese cantidad"/>
+                <label for="cantidad">Cantidad</label>
             </div>
-            <div class="form-group">  
-                <label>Seleccione Proveedor</label>
-                <select name="cboProveedor" class="form-control">
+            <div class="input-field col s12">  
+                
+                <select name="cboProveedor">
                 <?php
                 foreach ($proveedores as $unProveedor)
                 {
@@ -31,38 +31,39 @@ class ProductosView
                 }
                 ?>
                 </select>
+                <label>Seleccione Proveedor</label>
             </div>
-            <div class="form-group">  
-                <input type="submit"  class="btn btn-default" name="btnAgregar" value="Agregar" />
-                <input type="button"  class="btn btn-primary" name="btnCancelar" value="Cancelar" onclick="history.go(-1)" />
+            <div class="input-field col s12"> 
+                <input type="submit"  class="btn" name="btnAgregar" value="Agregar" />
+                <input type="button"  class="btn" name="btnCancelar" value="Cancelar" onclick="history.go(-1)" />
             </div>
             </form>
         </div>
         <?php 
+        $this->inicializarSelect();
     }
 
     public function getVistaModificarProducto($unProducto, $proveedores)
     {
         ?>
         <h3>Editar &aacute;rticulo</h3>
-        <div class="container" >
-            <form name="frmEditar" action="index.php?url=Productos&accion=<?php echo EnumAccion::Modificar(); ?>" method="post">
+        <div class="row" >
+            <form class="col s12" name="frmEditar" action="index.php?url=Productos&accion=<?php echo EnumAccion::Modificar(); ?>" method="post">
             <input type="hidden" name="hndId" value="<?php echo $unProducto->getIdProducto() ;?>" />
-            <div class="form-group">  
-                <label>Nombre:</label>
-                <input type="text" class="form-control" required="true" name="txtNombre" value="<?php echo $unProducto->getNombre() ; ?>" /> 
+            <div class="input-field col s12">  
+                <input id="nombre" type="text" required="true" name="txtNombre" value="<?php echo $unProducto->getNombre() ; ?>" /> 
+                <label for="nombre">Nombre:</label>
             </div>
-            <div class="form-group">  
-                <label>Precio:</label>
-                <input type="text" class="form-control" required="true" name="txtPrecio" value="<?php echo $unProducto->getPrecio() ; ?>" /> 
+            <div class="input-field col s12">  
+                <input type="text" required="true" name="txtPrecio" value="<?php echo $unProducto->getPrecio() ; ?>" /> 
+                <label for="txtPrecio">Precio:</label>
             </div>
-            <div class="form-group">  
-                <label>Cantidad</label>
-                <input type="text" class="form-control" required="true" name="txtCantidad" value="<?php echo $unProducto->getCantidad() ; ?>" />
+            <div class="input-field col s12">                  
+                <input type="text" required="true" name="txtCantidad" value="<?php echo $unProducto->getCantidad() ; ?>" />
+                <label for="txtCantidad">Cantidad</label>
             </div>
-            <div class="form-group">  
-                <label>Seleccione Proveedor</label>
-                <select name="cboProveedor" class="form-control">
+            <div class="input-field col s12"> 
+                <select name="cboProveedor">
                 <?php
                 foreach ($proveedores as $unProveedor)
                 {
@@ -76,38 +77,40 @@ class ProductosView
                 }
                 ?>
                 </select>
+                <label for="cboProveedor">Seleccione Proveedor</label>
             </div>
-            <div class="form-group">  
+            <div class="input-field col s12">  
             <input type="submit"  class="btn btn-default" name="btnModificar" value="Modificar" />
             <input type="button"  class="btn btn-primary" name="btnCancelar" value="Cancelar" onclick="history.go(-1)" />
             </div>
             </form>
         </div>
         <?php 
+         $this->inicializarSelect();
     }
 
     public function getVistaEliminarProducto($unProducto, $proveedores)
     {
         ?>
         <h3>Eliminar &aacute;rticulo</h3>
-        <div class="container" >
-        <form name="frmEliminar" action="index.php?url=Productos&accion=<?php echo EnumAccion::Eliminar(); ?>" method="post">
+        <div class="row" >
+        <form class="col s12" name="frmEliminar" action="index.php?url=Productos&accion=<?php echo EnumAccion::Eliminar(); ?>" method="post">
         <input type="hidden" name="hndId" value="<?php echo $unProducto->getIdProducto() ;?>" />
-        <div class="form-group">  
-            <label>Nombre:</label>
-            <input type="text" class="form-control" required="true" name="txtNombre" value="<?php echo $unProducto->getNombre() ; ?>" /> 
-        </div>
-        <div class="form-group">  
-            <label>Precio:</label>
-            <input type="text" class="form-control" required="true" name="txtPrecio" value="<?php echo $unProducto->getPrecio() ; ?>" /> 
-        </div>
-        <div class="form-group">  
-            <label>Cantidad</label>
-            <input type="text" class="form-control" required="true" name="txtCantidad" value="<?php echo $unProducto->getCantidad() ; ?>" />
-        </div>
-        <div class="form-group">  
+            <div class="input-field col s12">  
+                <input id="nombre" type="text" required="true" name="txtNombre" value="<?php echo $unProducto->getNombre() ; ?>" /> 
+                <label for="nombre">Nombre:</label>
+            </div>
+            <div class="input-field col s12">  
+                <input type="text" required="true" name="txtPrecio" value="<?php echo $unProducto->getPrecio() ; ?>" /> 
+                <label for="txtPrecio">Precio:</label>
+            </div>
+            <div class="input-field col s12">                  
+                <input type="text" required="true" name="txtCantidad" value="<?php echo $unProducto->getCantidad() ; ?>" />
+                <label for="txtCantidad">Cantidad</label>
+            </div>
+        <div class="input-field col s12">  
                 <label>Seleccione Proveedor</label>
-                <select name="cboProveedor" class="form-control">
+                <select name="cboProveedor">
                 <?php
                 foreach ($proveedores as $unProveedor)
                 {
@@ -122,20 +125,21 @@ class ProductosView
                 ?>
                 </select>
             </div>
-        <div class="form-group">  
-            <input type="submit"  class="btn btn-default" name="btnEliminar" value="Eliminar" />
-            <input type="button"  class="btn btn-primary" name="btnCancelar" value="Cancelar" onclick="history.go(-1)" />
+        <div class="input-field col s12">  
+            <input type="submit"  class="btn" name="btnEliminar" value="Eliminar" />
+            <input type="button"  class="btn" name="btnCancelar" value="Cancelar" onclick="history.go(-1)" />
             </div>
         </form>
         </div>
-        <?php 
+        <?php
+         $this->inicializarSelect(); 
     }
 
     public function getVistaProductos ($lista_productos)
     {
     ?>
         <h3>Listado de Productos</h3>
-        <table  class="table table-hover">
+        <table  class="responsive-table">
         <thead>
 				<tr>
 					<th>Nombre Producto</th>
@@ -145,7 +149,8 @@ class ProductosView
 					<th>&nbsp;</th>
 					<th>&nbsp;</th>
 				</tr>
-		</thead>
+        </thead>
+        <tbody>
         <?php
             if(count($lista_productos) > 0)
             {
@@ -165,6 +170,7 @@ class ProductosView
                 echo '<tr><td colspan="6">Aun no se han cargado Datos! Pulse el boton para agregar alguno</td></tr>';
             }
         ?>
+        </tbody>
         </table>
         <form name="frmAlta" method="POST" action="index.php?url=Productos&accion=<?php echo EnumAccion::Mostrar_Agregar() ?>">
             <input type="Submit" class="btn btn-primary" name="btnAgregar" value="Agregar Producto" />
@@ -227,7 +233,7 @@ class ProductosView
     {
         $html = '<form name="frmEditar_' .$id. '" action="index.php?url=Productos&accion='. EnumAccion::Mostrar_Editar(). '" method="POST" >';
         $html .= '<input type="hidden" name="hdn_key" value="'. $id .'" >';
-        $html .= '<input type="Submit" class="btn btn-default" name="btnEditar" value="Editar Articulo" >';
+        $html .= '<input type="Submit" class="btn" name="btnEditar" value="Editar Articulo" >';
         $html .= '</form>';
 
         return $html;
@@ -237,7 +243,7 @@ class ProductosView
     {
         $html = '<form name="frmEditar_' .$id. '" action="index.php?url=Productos&accion='. EnumAccion::Mostrar_Eliminar(). '" method="POST" >';
         $html .= '<input type="hidden" name="hdn_key" value="'. $id .'" >';
-        $html .= '<input type="Submit" class="btn btn-default" name="btnEliminar" value="Eliminar Articulo" >';
+        $html .= '<input type="Submit" class="btn" name="btnEliminar" value="Eliminar Articulo" >';
         $html .= '</form>';
 
         return $html;
@@ -246,6 +252,19 @@ class ProductosView
     public function getNombreArchivo ()
     {
         return basename( __FILE__ );
+    }
+
+    private function inicializarSelect ()
+    {
+        //este codigo es requerido por materialize, para que muestre los selects tuneas
+        echo "
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems, {});
+          });
+        </script>
+        ";
     }
 
 }
