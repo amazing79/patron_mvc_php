@@ -7,3 +7,8 @@ body {
   main {
     flex: 1 0 auto;
   }
+
+  tbody>tr:hover{
+    /*background-color: rgb(221, 235, 230);*/
+    background-color: rgb(252, 195, 120);
+  }
