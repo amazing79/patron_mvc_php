@@ -1,7 +1,7 @@
 
 <div class="navbar-fixed">
 <nav>
-	<div class="nav-wrapper">
+	<div class="nav-wrapper blue-grey darken-3">
 					
 		<a class="brand-logo center" href="http://localhost/m_apptienda/">
 		AppTienda<i class="material-icons">cloud</i>

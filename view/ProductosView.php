@@ -174,7 +174,7 @@ class ProductosView
         </table>
         <br />
         <form name="frmAlta" method="POST" action="index.php?url=Productos&accion=<?php echo EnumAccion::Mostrar_Agregar() ?>">
-            <input type="Submit" class="btn btn-primary" name="btnAgregar" value="Agregar Producto" />
+            <input type="Submit" class="btn light-blue darken-1" name="btnAgregar" value="Agregar Producto" />
         </form>
         <br />
         <?php
@@ -245,7 +245,7 @@ class ProductosView
     {
         $html = '<form name="frmEditar_' .$id. '" action="index.php?url=Productos&accion='. EnumAccion::Mostrar_Eliminar(). '" method="POST" >';
         $html .= '<input type="hidden" name="hdn_key" value="'. $id .'" >';
-        $html .= '<input type="Submit" class="btn" name="btnEliminar" value="Eliminar Articulo" >';
+        $html .= '<input type="Submit" class="btn waves-effect green lighten-1 white-text" name="btnEliminar" value="Eliminar Articulo" >';
         $html .= '</form>';
 
         return $html;

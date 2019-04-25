@@ -1,4 +1,4 @@
- <footer class="page-footer">
+ <footer class="page-footer blue-grey darken-3">
     <div class="container">
             <div class="row">
               <div class="col l6 s12">
@@ -16,7 +16,7 @@
               </div>
             </div>
           </div>
-          <div class="footer-copyright">
+          <div class="footer-copyright grey darken-4">
             <div class="container">
                 © 2019 Copyright - Derechos reservados
             </div>
