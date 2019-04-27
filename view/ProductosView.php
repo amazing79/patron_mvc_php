@@ -2,7 +2,7 @@
 class ProductosView
 {
     //para definir cantidad de registros a mostrar por paginado, si lo requiera
-    private $p_tl_per_pagina = 8;
+    private $p_tl_per_pagina = 6;
 
 
     public function getTotalPerPage()

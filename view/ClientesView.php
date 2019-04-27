@@ -137,7 +137,7 @@ class ClientesView
         </table>
         <br />
         <form name="frmAlta" method="POST" action="index.php?url=Clientes&accion=<?php echo EnumAccion::Mostrar_Agregar() ?>">
-            <input type="Submit" class="waves-effect waves-light btn btn-primary" name="btnAgregar" value="Agregar Cliente" />
+            <input type="Submit" class="btn light-blue darken-1" name="btnAgregar" value="Agregar Cliente" />
         </form>
         <br />
         <?php
@@ -199,7 +199,7 @@ class ClientesView
     {
         $html = '<form name="frmEditar_' .$id. '" action="index.php?url=Clientes&accion='. EnumAccion::Mostrar_Editar(). '" method="POST" >';
         $html .= '<input type="hidden" name="hdn_key" value="'. $id .'" >';
-        $html .= '<input type="Submit" class="btn waves-effect waves-green" name="btnEditar" value="Editar Cliente" >';
+        $html .= '<input type="Submit" class="btn" name="btnEditar" value="Editar Cliente" >';
         $html .= '</form>';
 
         return $html;
@@ -209,7 +209,7 @@ class ClientesView
     {
         $html = '<form name="frmEditar_' .$id. '" action="index.php?url=Clientes&accion='. EnumAccion::Mostrar_Eliminar(). '" method="POST" >';
         $html .= '<input type="hidden" name="hdn_key" value="'. $id .'" >';
-        $html .= '<input type="Submit" class="btn waves-effect waves-red" name="btnEliminar" value="Eliminar Cliente" >';
+        $html .= '<input type="Submit" class="btn waves-effect green lighten-1 white-text" name="btnEliminar" value="Eliminar Cliente" >';
         $html .= '</form>';
 
         return $html;
