@@ -1,6 +1,15 @@
 <?php
 class ProductosView
 {
+    //para definir cantidad de registros a mostrar por paginado, si lo requiera
+    private $p_tl_per_pagina = 8;
+
+
+    public function getTotalPerPage()
+    {
+        return $this->p_tl_per_pagina;
+    }
+
     public function getVistaAltaProducto($proveedores)
     {
         ?>
@@ -135,7 +144,7 @@ class ProductosView
          $this->inicializarSelect(); 
     }
 
-    public function getVistaProductos ($lista_productos)
+    public function getVistaProductos ($lista_productos, $indice, $total)
     {
     ?>
         <h3>Listado de Productos</h3>
@@ -173,6 +182,12 @@ class ProductosView
         </tbody>
         </table>
         <br />
+        <?php
+        if ($total > $this->getTotalPerPage())
+        {
+            $this->armar_paginado($indice, $total);
+        }
+        ?>
         <form name="frmAlta" method="POST" action="index.php?url=Productos&accion=<?php echo EnumAccion::Mostrar_Agregar() ?>">
             <input type="Submit" class="btn light-blue darken-1" name="btnAgregar" value="Agregar Producto" />
         </form>
@@ -267,6 +282,32 @@ class ProductosView
           });
         </script>
         ";
+    }
+
+    private function armar_paginado($actual, $total_registros)
+    { 
+        $tl_paginados = ceil($total_registros / $this->p_tl_per_pagina);
+
+        $anterior = ($actual > 1) ? $actual - 1 : $actual;
+        $siguiente = ($actual < $tl_paginados) ? $actual + 1 : $actual;
+        echo '<ul class="pagination">';
+        echo '<li class="waves-effect"><a href="index.php?url=Productos&actual='. $anterior.'"><i class="material-icons">chevron_left</i></a></li>';
+        //armo el paginado de acuerdo al total de registros
+        for($indice=1;$indice<=$tl_paginados; $indice++)
+        {
+            if($indice == $actual)
+            {
+                echo '<li class="active"><a href="index.php?url=Productos&actual='. $indice . '">'.$indice .'</a></li>';
+            }
+            else
+            {
+                echo '<li class="waves-effect"><a href="index.php?url=Productos&actual='. $indice .'">'.$indice .'</a></li>';
+            }
+        }
+        
+        echo '<li class="waves-effect"><a href="index.php?url=Productos&actual='. $siguiente.'"><i class="material-icons">chevron_right</i></a></li>';
+        echo '</ul>';
+            
     }
 
 }

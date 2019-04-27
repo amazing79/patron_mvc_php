@@ -8,11 +8,20 @@
                 $this->db = conexion::conectar();
         }
 
-        public function getProductos()
+        public function getProductos($indice=0, $tl_per_page = 5)
         {
             $vec_productos = array();
             $query = 'SELECT idProducto, nombre, cantidad, precio, p.idProveedor, nombre_proveedor, mail_contacto ';
-            $query .= ' FROM productos p inner join proveedores pv on (p.idProveedor = pv.idproveedor); ';
+            $query .= ' FROM productos p inner join proveedores pv on (p.idProveedor = pv.idproveedor) ';
+            $query .= ' ORDER BY nombre ';
+
+            if($indice !=0)
+            {
+                //para paginado, ya que puede devolver muchos registros
+                $query .= ' LIMIT ' . ($indice -1) * $tl_per_page . ',  '  . $tl_per_page;
+            }
+
+            $query .= ';';
 
             if ($rs = $this->db->query($query)) {
 
@@ -25,6 +34,28 @@
             }
 
             return $vec_productos;
+        }
+
+        public function getTotal()
+        {
+            $total = 0;
+
+            $query = 'SELECT count(idProducto) as total';
+            $query .= ' FROM productos ';
+            $query .= ';';
+
+            try {
+                if ($rs = $this->db->query($query)) 
+                {
+                    $fila = $rs->fetch_assoc();
+                    $total = $fila['total'];
+                }
+                 /* liberar el conjunto de resultados */
+                $rs->free();
+                return $total;
+            } catch (Exception $e) {
+                return 0;
+            }
         }
 
         public function getProductoById($idProducto)
