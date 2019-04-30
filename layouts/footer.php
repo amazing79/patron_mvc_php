@@ -8,7 +8,7 @@
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Links</h5>
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="http://localhost/m_apptienda/">Home</a></li>
+                  <li><a class="grey-text text-lighten-3" href="index.php">Home</a></li>
                   <li><a class="grey-text text-lighten-3" href="index.php?url=Productos">Productos</a></li>
                   <li><a class="grey-text text-lighten-3" href="index.php?url=Clientes">Clientes</a></li>
                   <li><a class="grey-text text-lighten-3" href="index.php?url=Proveedores">Proveedores</a></li>
