@@ -18,6 +18,15 @@
 			<li>
 				<a href="index.php?url=Proveedores">Proveedores</a>
 			</li>
+			<li>
+				<a href="validator.php">Cerrar Sesion</a>
+			<!--
+			<form id="frmLogin" name="frmLogin" method="post" action="validator.php" class="col">
+                    <input type="hidden" name="hdn_user" value=""/>
+                    <input type="submit" name="btnCerrar" value="Cerrar Sesion">
+                </form>
+			-->
+           </li>
 		</ul>
 	</div>
 </nav>
@@ -27,6 +36,7 @@
     <li><a href="index.php?url=Productos">Productos</a></li>
     <li><a href="index.php?url=Clientes">Clientes</a></li>
     <li><a href="index.php?url=Proveedores">Proveedores</a></li>
+	<li><a href="validator.php">Cerrar Sesion</a></li>
 </ul>
 
 <script>

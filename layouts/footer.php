@@ -18,7 +18,7 @@
           </div>
           <div class="footer-copyright grey darken-4">
             <div class="container">
-                © 2019 Copyright - Derechos reservados
+              2019 Copyright - Derechos reservados
             </div>
     </div>
 </footer>
