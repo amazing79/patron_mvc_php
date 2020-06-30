@@ -5,20 +5,20 @@ class ProveedoresView
     {
         ?>
         <h3>Agregar Proveedor</h3>
-        <div class="container" >
-            <form name="frmAlta" action="index.php?url=Proveedores&accion=<?php echo EnumAccion::Agregar(); ?>" method="post">
+        <div class="row" >
+            <form class="col s12" name="frmAlta" action="index.php?url=Proveedores&accion=<?php echo EnumAccion::Agregar(); ?>" method="post">
             <input type="hidden" name="hndId" value="-1" />
-            <div class="form-group">  
+            <div class="input-field col s12">  
                 <label>Nombre Proveedor:</label>
-                <input type="text" name="txtNombre" class="form-control" required="true" placeholder="Ingrese nombre"/>
+                <input type="text" name="txtNombre" required="true" placeholder="Ingrese nombre"/>
             </div>
-            <div class="form-group">  
+            <div class="input-field col s12">  
                 <label>Mail de contacto:</label>
-                <input type="text" name="txtMail" class="form-control" required="true" placeholder="Ingrese Mail"/>
+                <input type="text" name="txtMail" required="true" placeholder="Ingrese Mail"/>
             </div>
-            <div class="form-group">  
-                <input type="submit"  class="btn btn-default" name="btnAgregar" value="Agregar" />
-                <input type="button"  class="btn btn-primary" name="btnCancelar" value="Cancelar" onclick="history.go(-1)" />
+            <div class="input-field col s12">  
+                <input type="submit"  class="btn" name="btnAgregar" value="Agregar" />
+                <input type="button"  class="btn" name="btnCancelar" value="Cancelar" onclick="history.go(-1)" />
             </div>
             </form>
         </div>
@@ -29,20 +29,20 @@ class ProveedoresView
     {
         ?>
         <h3>Editar Proveedor</h3>
-        <div class="container" >
-            <form name="frmEditar" action="index.php?url=Proveedores&accion=<?php echo EnumAccion::Modificar(); ?>" method="post">
+        <div class="row" >
+            <form class="col s12" name="frmEditar" action="index.php?url=Proveedores&accion=<?php echo EnumAccion::Modificar(); ?>" method="post">
             <input type="hidden" name="hndId" value="<?php echo $unProveedor->getIdProveedor()?>" />
-            <div class="form-group">  
+            <div class="input-field col s12">  
                 <label>Nombre Proveedor:</label>
-                <input type="text" class="form-control" name="txtNombre" value="<?php echo $unProveedor->getNombreProveedor() ?>" /> 
+                <input type="text"  name="txtNombre" value="<?php echo $unProveedor->getNombreProveedor() ?>" /> 
             </div>
-            <div class="form-group">  
+            <div class="input-field col s12">  
                 <label>Mail de contacto:</label>
-                <input type="text" class="form-control" name="txtMail" value="<?php echo $unProveedor->getMailContacto() ?>" /> 
+                <input type="text"  name="txtMail" value="<?php echo $unProveedor->getMailContacto() ?>" /> 
             </div>
-            <div class="form-group">  
-            <input type="submit"  class="btn btn-default" name="btnModificar" value="Modificar" />
-            <input type="button"  class="btn btn-primary" name="btnCancelar" value="Cancelar" onclick="history.go(-1)" />
+            <div class="input-field col s12">  
+            <input type="submit"  class="btn" name="btnModificar" value="Modificar" />
+            <input type="button"  class="btn" name="btnCancelar" value="Cancelar" onclick="history.go(-1)" />
             </div>
             </form>
         </div>
@@ -53,20 +53,20 @@ class ProveedoresView
     {
         ?>
         <h3>Eliminar Proveedor</h3>
-        <div class="container" >
-        <form name="frmEliminar" action="index.php?url=Proveedores&accion=<?php echo EnumAccion::Eliminar(); ?>" method="post">
+        <div class="row" >
+        <form class="col s12" name="frmEliminar" action="index.php?url=Proveedores&accion=<?php echo EnumAccion::Eliminar(); ?>" method="post">
         <input type="hidden" name="hndId" value="<?php echo $unProveedor->getIdProveedor()?>" />
-        <div class="form-group">  
+        <div class="input-field col s12">  
             <label>Nombre Proveedor:</label>
-            <input type="text" class="form-control" name="txtNombre" value="<?php echo $unProveedor->getNombreProveedor() ?>" /> 
+            <input type="text"  name="txtNombre" value="<?php echo $unProveedor->getNombreProveedor() ?>" /> 
         </div>
-        <div class="form-group">  
+        <div class="input-field col s12">  
             <label>Mail de contacto:</label>
-            <input type="text" class="form-control" name="txtMail" value="<?php echo $unProveedor->getMailContacto() ?>" /> 
+            <input type="text"  name="txtMail" value="<?php echo $unProveedor->getMailContacto() ?>" /> 
         </div>
-        <div class="form-group">  
-            <input type="submit"  class="btn btn-default" name="btnEliminar" value="Eliminar" />
-            <input type="button"  class="btn btn-primary" name="btnCancelar" value="Cancelar" onclick="history.go(-1)" />
+        <div class="input-field col s12">  
+            <input type="submit"  class="btn" name="btnEliminar" value="Eliminar" />
+            <input type="button"  class="btn" name="btnCancelar" value="Cancelar" onclick="history.go(-1)" />
             </div>
         </form>
         </div>
@@ -77,7 +77,7 @@ class ProveedoresView
     {
     ?>
         <h3>Listado de Proveedores</h3>
-        <table  class="table table-hover">
+        <table  class="responsive-table">
         <thead>
 				<tr>
 					<th>Nombre Proveedor</th>
@@ -85,7 +85,8 @@ class ProveedoresView
 					<th>&nbsp;</th>
 					<th>&nbsp;</th>
 				</tr>
-		</thead>
+        </thead>
+        <tbody>
         <?php
             if(count($lista_Proveedores) > 0)
             {
@@ -103,62 +104,63 @@ class ProveedoresView
                 echo '<tr><td colspan="4">Aun no se han cargado Datos! Pulse el boton para agregar alguno</td></tr>';
             }
         ?>
+        </tbody>
         </table>
+        <br />
         <form name="frmAlta" method="POST" action="index.php?url=Proveedores&accion=<?php echo EnumAccion::Mostrar_Agregar() ?>">
-            <input type="Submit" class="btn btn-primary" name="btnAgregar" value="Agregar Proveedor" />
+            <input type="Submit" class="btn light-blue darken-1" name="btnAgregar" value="Agregar Proveedor" />
         </form>
+        <br />
         <?php
     }
 
     public function getVistaResultado ($resu, $accion_actual)
-    {
-        if ($resu)
+    {   
+        if($resu)
         {
-            echo '<div class="alert alert-success" role="alert">';
+            $html_out = '<img src="assets/img/confirm.png"/>';
         }
-        else 
+        else
         {
-            echo '<div class="alert alert-danger" role="alert">';
+            $html_out = '<img src="assets/img/error.png"/>';
         }
-
-        echo '<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>';
-        
-        echo '<h3>Resultado de la Operaci&oacute;n</h3>';
-       
+        $html_out .= 'Resultado de la Operaci&oacute;n = ';
         switch($accion_actual)
         {
             case EnumAccion::Agregar():
             if ($resu)
             {
-                echo '<p>Se ha dado de alta el Proveedor exitosamente!</p>'; 
+                $html_out .= 'Se ha dado de alta el Proveedor exitosamente!'; 
             }
             else{
-                echo '<p>Problemas al intentar dar de alta el Proveedor!</p>'; 
+                $html_out .= 'Problemas al intentar dar de alta el Proveedor!'; 
             }
             break;
             case EnumAccion::Modificar():
             if ($resu)
             {
-                echo '<p>Se han actualizado los datos exitosamente!</p>'; 
+                $html_out .= 'Se han actualizado los datos exitosamente!'; 
             }
             else{
-                echo '<p>Problemas al intentar actualizar el Proveedor!</p>'; 
+                $html_out .= 'Problemas al intentar actualizar el Proveedor!'; 
             }
             break;
             case EnumAccion::Eliminar():
             if ($resu)
             {
-                echo '<p>Se ha eliminado el Proveedor exitosamente!</p>'; 
+                $html_out .= 'Se ha eliminado el Proveedor exitosamente!'; 
             }
             else{
-                echo '<p>Problemas al intentar dar de baja el Proveedor!</p>'; 
+                $html_out .= 'Problemas al intentar dar de baja el Proveedor!'; 
             }
             break;
             default:
-            echo '<p>Operacion no admitida!</p>'; 
+            $html_out .= 'Operacion no admitida!'; 
         }
         
-        //echo '<a href="'. $_SERVER['PHP_SELF'] .'?url=Proveedores">Volver</a>';
+        echo '<div class="chip">';
+        echo $html_out;
+        echo '<i class="close material-icons">close</i>';
         echo '</div>';
     }
 
@@ -166,7 +168,7 @@ class ProveedoresView
     {
         $html = '<form name="frmEditar_' .$id. '" action="index.php?url=Proveedores&accion='. EnumAccion::Mostrar_Editar(). '" method="POST" >';
         $html .= '<input type="hidden" name="hdn_key" value="'. $id .'" >';
-        $html .= '<input type="Submit" class="btn btn-default" name="btnEditar" value="Editar Proveedor" >';
+        $html .= '<input type="Submit" class="btn" name="btnEditar" value="Editar Proveedor" >';
         $html .= '</form>';
 
         return $html;
@@ -176,7 +178,7 @@ class ProveedoresView
     {
         $html = '<form name="frmEditar_' .$id. '" action="index.php?url=Proveedores&accion='. EnumAccion::Mostrar_Eliminar(). '" method="POST" >';
         $html .= '<input type="hidden" name="hdn_key" value="'. $id .'" >';
-        $html .= '<input type="Submit" class="btn btn-default" name="btnEliminar" value="Eliminar Proveedor" >';
+        $html .= '<input type="Submit" class="btn waves-effect green lighten-1 white-text" name="btnEliminar" value="Eliminar Proveedor" >';
         $html .= '</form>';
 
         return $html;

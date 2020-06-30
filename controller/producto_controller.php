@@ -21,11 +21,18 @@ class ProductoController
 
     public function index($mostrar_alert = false, $resu = false, $accion = 0)
     {
+        //obtiene el total de elementos productos, el cual luego se usará para armar el paginado
+        $total_elementos = $this->productosModel->getTotal();
+        //indice para el paginado. indicará tambien desde que posicion arrancar la búsqueda
+        $indice = (isset ($_REQUEST['actual']) && $_REQUEST['actual'] != 0) ? $_REQUEST['actual'] : 1;
+        //cuantos elmenentos mostrará la vista, si fuera mayor al total, requiere paginado
+        $nro_per_page = $this->productosView->getTotalPerPage();
+        
         if($mostrar_alert)
         {
              $this->productosView->getVistaResultado($resu, $accion);
         } 
-       $this->productosView->getVistaProductos($this->productosModel->getProductos());
+       $this->productosView->getVistaProductos($this->productosModel->getProductos($indice, $nro_per_page), $indice, $total_elementos);
     }
 
     public function cargarAlta()
