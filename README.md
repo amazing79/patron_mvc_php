@@ -1,5 +1,5 @@
 # patron_mvc_php
-Puesta en práctica del patron MVC con PHP. La vista es mediante Bootstrap
+Puesta en práctica del patron MVC con PHP. La vista es mediante Materialize
 
 # Ultima modificación 20/04/2019
 Se agrego archivo .gitignore, el cual faltaba
